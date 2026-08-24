@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>ASID GO Firebase Test</title>
+    <title>ASID GO Firebase Debug</title>
 
 </head>
 
@@ -16,11 +16,7 @@
 
     <h1>ASID GO 🔥</h1>
 
-    <h2>FIREBASE TEST VERSION 4</h2>
-
-    <p>
-        Test Firebase Firestore connection
-    </p>
+    <h2>FIREBASE DEBUG VERSION 5</h2>
 
     <button
         id="testButton"
@@ -37,133 +33,131 @@
 
     <script type="module">
 
-        import { db } from "./firebase.js";
-
-        import {
-            collection,
-            addDoc,
-            serverTimestamp
-        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
+        const status =
+            document.getElementById("status");
 
         const button =
             document.getElementById("testButton");
 
-        const status =
-            document.getElementById("status");
+
+        status.innerText =
+            "Status: Loading Firebase...";
 
 
-        console.log(
-            "🔥 FIREBASE SCRIPT LOADED"
-        );
+        try {
 
 
-        button.addEventListener(
-            "click",
-            async function () {
+            const firebaseModule =
+                await import("./firebase.js");
 
 
-                console.log(
-                    "🔥 BUTTON CLICKED"
+            const db =
+                firebaseModule.db;
+
+
+            const firestore =
+                await import(
+                    "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js"
                 );
 
 
-                button.disabled = true;
+            const collection =
+                firestore.collection;
 
-                button.innerText =
-                    "CONNECTING...";
+            const addDoc =
+                firestore.addDoc;
 
-
-                status.innerText =
-                    "Status: Connecting to Firebase...";
-
-
-                try {
+            const serverTimestamp =
+                firestore.serverTimestamp;
 
 
-                    console.log(
-                        "🔥 Starting Firestore..."
-                    );
+            status.innerText =
+                "Status: Firebase loaded ✅";
 
 
-                    const docRef =
-                        await addDoc(
+            button.addEventListener(
+                "click",
+                async function () {
 
-                            collection(
-                                db,
-                                "test"
-                            ),
 
-                            {
+                    status.innerText =
+                        "Status: Saving data...";
 
-                                message:
-                                    "ASID GO Firebase Test",
 
-                                createdAt:
-                                    serverTimestamp()
+                    try {
 
-                            }
 
+                        const docRef =
+                            await addDoc(
+
+                                collection(
+                                    db,
+                                    "test"
+                                ),
+
+                                {
+
+                                    message:
+                                        "ASID GO TEST",
+
+                                    createdAt:
+                                        serverTimestamp()
+
+                                }
+
+                            );
+
+
+                        status.innerText =
+                            "SUCCESS! Firebase connected ✅ " +
+                            "ID: " +
+                            docRef.id;
+
+
+                        alert(
+                            "FIREBASE WORKS! 🎉"
                         );
 
 
-                    console.log(
-                        "🔥 DATA SAVED!",
-                        docRef.id
-                    );
+                    }
+
+                    catch (error) {
 
 
-                    status.innerText =
-                        "Status: FIREBASE CONNECTED ✅";
+                        status.innerText =
+                            "FIREBASE ERROR ❌ " +
+                            error.message;
 
 
-                    button.innerText =
-                        "FIREBASE WORKS ✅";
+                        alert(
+                            "FIREBASE ERROR:\n\n" +
+                            error.message
+                        );
 
-
-                    alert(
-                        "FIREBASE WORKS! 🎉\n\n" +
-                        "Document ID: " +
-                        docRef.id
-                    );
-
+                    }
 
                 }
+            );
 
-                catch (error) {
+        }
 
-
-                    console.error(
-                        "🔥 FIREBASE ERROR:",
-                        error
-                    );
+        catch (error) {
 
 
-                    status.innerText =
-                        "Status: FIREBASE ERROR ❌";
+            status.innerText =
+                "FIREBASE LOAD ERROR ❌ " +
+                error.message;
 
 
-                    button.disabled =
-                        false;
+            alert(
+                "FIREBASE LOAD ERROR:\n\n" +
+                error.message
+            );
 
-
-                    button.innerText =
-                        "TRY AGAIN";
-
-
-                    alert(
-                        "Firebase Error:\n\n" +
-                        error.message
-                    );
-
-                }
-
-            }
-
-        );
+        }
 
     </script>
 
 </body>
 
-</html>
+</html>s
