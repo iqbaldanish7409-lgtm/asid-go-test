@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>ASID GO TEST</title>
+    <title>ASID GO Firebase Test</title>
 
 </head>
 
@@ -24,15 +25,75 @@
 
     <script type="module">
 
-        console.log("🔥 JavaScript loaded");
+        import { db } from "./firebase.js";
+
+        import {
+            collection,
+            addDoc,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+        console.log("🔥 Firebase loaded");
+
 
         document
             .getElementById("testButton")
-            .addEventListener("click", function () {
+            .addEventListener("click", async function () {
 
-                console.log("🔥 BUTTON WORKS!");
 
-                alert("BUTTON WORKS!");
+                console.log("🔥 BUTTON CLICKED");
+
+
+                try {
+
+
+                    const docRef =
+                        await addDoc(
+
+                            collection(db, "test"),
+
+                            {
+
+                                message:
+                                    "Firebase is working!",
+
+                                createdAt:
+                                    serverTimestamp()
+
+                            }
+
+                        );
+
+
+                    console.log(
+                        "🔥 DATA SAVED!",
+                        docRef.id
+                    );
+
+
+                    alert(
+                        "Firebase works! 🎉"
+                    );
+
+
+                }
+
+                catch (error) {
+
+
+                    console.error(
+                        "🔥 FIREBASE ERROR:",
+                        error
+                    );
+
+
+                    alert(
+                        "Firebase Error: " +
+                        error.message
+                    );
+
+                }
 
             });
 
