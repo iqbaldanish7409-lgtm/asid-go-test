@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>ASID GO Firebase Debug</title>
+    <title>ASID GO Firebase Test</title>
 
 </head>
 
@@ -16,7 +16,12 @@
 
     <h1>ASID GO 🔥</h1>
 
-    <h2>FIREBASE DEBUG VERSION 5</h2>
+    <h2>FIREBASE TEST VERSION 6</h2>
+
+    <p>
+        Testing ASID GO connection to Firebase Firestore.
+    </p>
+
 
     <button
         id="testButton"
@@ -26,18 +31,26 @@
 
     </button>
 
+
     <p id="status">
+
         Status: Page loaded
+
     </p>
 
 
     <script type="module">
 
+        const button =
+            document.getElementById("testButton");
+
         const status =
             document.getElementById("status");
 
-        const button =
-            document.getElementById("testButton");
+
+        console.log(
+            "🔥 ASID GO VERSION 6 STARTED"
+        );
 
 
         status.innerText =
@@ -47,12 +60,25 @@
         try {
 
 
+            /*
+             * IMPORTANT:
+             * ?v=2 forces the browser
+             * to load the newest firebase.js
+             */
+
             const firebaseModule =
-                await import("./firebase.js");
+                await import(
+                    "./firebase.js?v=2"
+                );
 
 
             const db =
                 firebaseModule.db;
+
+
+            console.log(
+                "🔥 Firebase module loaded"
+            );
 
 
             const firestore =
@@ -71,6 +97,11 @@
                 firestore.serverTimestamp;
 
 
+            console.log(
+                "🔥 Firestore module loaded"
+            );
+
+
             status.innerText =
                 "Status: Firebase loaded ✅";
 
@@ -80,8 +111,21 @@
                 async function () {
 
 
+                    console.log(
+                        "🔥 TEST BUTTON CLICKED"
+                    );
+
+
+                    button.disabled =
+                        true;
+
+
+                    button.innerText =
+                        "SAVING...";
+
+
                     status.innerText =
-                        "Status: Saving data...";
+                        "Status: Saving test data...";
 
 
                     try {
@@ -98,7 +142,7 @@
                                 {
 
                                     message:
-                                        "ASID GO TEST",
+                                        "ASID GO Firebase Test",
 
                                     createdAt:
                                         serverTimestamp()
@@ -108,14 +152,24 @@
                             );
 
 
+                        console.log(
+                            "🔥 DATA SAVED:",
+                            docRef.id
+                        );
+
+
                         status.innerText =
-                            "SUCCESS! Firebase connected ✅ " +
-                            "ID: " +
-                            docRef.id;
+                            "Status: FIREBASE CONNECTED ✅";
+
+
+                        button.innerText =
+                            "FIREBASE WORKS ✅";
 
 
                         alert(
-                            "FIREBASE WORKS! 🎉"
+                            "FIREBASE WORKS! 🎉\n\n" +
+                            "Document ID:\n" +
+                            docRef.id
                         );
 
 
@@ -124,13 +178,27 @@
                     catch (error) {
 
 
+                        console.error(
+                            "🔥 FIRESTORE ERROR:",
+                            error
+                        );
+
+
                         status.innerText =
-                            "FIREBASE ERROR ❌ " +
+                            "FIRESTORE ERROR ❌ " +
                             error.message;
 
 
+                        button.disabled =
+                            false;
+
+
+                        button.innerText =
+                            "TRY AGAIN";
+
+
                         alert(
-                            "FIREBASE ERROR:\n\n" +
+                            "FIRESTORE ERROR:\n\n" +
                             error.message
                         );
 
@@ -139,14 +207,29 @@
                 }
             );
 
+
         }
 
         catch (error) {
 
 
+            console.error(
+                "🔥 FIREBASE LOAD ERROR:",
+                error
+            );
+
+
             status.innerText =
                 "FIREBASE LOAD ERROR ❌ " +
                 error.message;
+
+
+            button.disabled =
+                true;
+
+
+            button.innerText =
+                "FIREBASE FAILED";
 
 
             alert(
@@ -160,4 +243,4 @@
 
 </body>
 
-</html>s
+</html>
