@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>ASID GO Firebase Test</title>
+    <title>ASID GO Firebase Test 2</title>
 
 </head>
 
@@ -16,11 +16,25 @@
 
     <h1>ASID GO 🔥</h1>
 
-    <p>Firebase connection test</p>
+    <h2>FIREBASE TEST VERSION 2</h2>
 
-    <button id="testButton">
-        TEST FIREBASE
+    <p>
+        Kalau kau nampak page ini,
+        maksudnya GitHub Pages sudah update.
+    </p>
+
+    <button
+        id="testButton"
+        type="button">
+
+        TEST FIREBASE NOW
+
     </button>
+
+
+    <p id="status">
+        Status: Waiting...
+    </p>
 
 
     <script type="module">
@@ -34,29 +48,43 @@
         } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-        console.log("🔥 Firebase loaded");
+        console.log("🔥🔥 FIREBASE VERSION 2 LOADED");
 
 
-        document
-            .getElementById("testButton")
-            .addEventListener("click", async function () {
+        const button =
+            document.getElementById("testButton");
+
+        const status =
+            document.getElementById("status");
 
 
-                console.log("🔥 BUTTON CLICKED");
+        button.addEventListener(
+            "click",
+            async function () {
+
+                console.log(
+                    "🔥🔥 BUTTON CLICKED"
+                );
+
+
+                status.innerText =
+                    "Status: Connecting to Firebase...";
 
 
                 try {
 
-
                     const docRef =
                         await addDoc(
 
-                            collection(db, "test"),
+                            collection(
+                                db,
+                                "test"
+                            ),
 
                             {
 
                                 message:
-                                    "Firebase is working!",
+                                    "ASID GO Firebase Test 2",
 
                                 createdAt:
                                     serverTimestamp()
@@ -67,13 +95,17 @@
 
 
                     console.log(
-                        "🔥 DATA SAVED!",
+                        "🔥🔥 DATA SAVED:",
                         docRef.id
                     );
 
 
+                    status.innerText =
+                        "Status: FIREBASE CONNECTED ✅";
+
+
                     alert(
-                        "Firebase works! 🎉"
+                        "FIREBASE WORKS! 🎉"
                     );
 
 
@@ -81,21 +113,25 @@
 
                 catch (error) {
 
-
                     console.error(
-                        "🔥 FIREBASE ERROR:",
+                        "🔥🔥 FIREBASE ERROR:",
                         error
                     );
 
 
+                    status.innerText =
+                        "Status: FIREBASE ERROR ❌";
+
+
                     alert(
-                        "Firebase Error: " +
+                        "Firebase Error:\n" +
                         error.message
                     );
 
                 }
 
-            });
+            }
+        );
 
     </script>
 
