@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ASID GO - Request Service</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        nav {
+            background: #172033;
+            color: white;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #667085;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d0d5dd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #172033;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .success {
+            background: #e8f7ed;
+            color: #18794e;
+        }
+
+        .error {
+            background: #fdecec;
+            color: #b42318;
+        }
+
+        .order-id {
+            margin-top: 10px;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <h2>ASID GO</h2>
+
+    <div>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="order.html">
+            Order
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>
+            Request a Service 🚗
+        </h1>
+
+        <p class="subtitle">
+            Tell us what you need and where you need it.
+        </p>
+
+
+        <!-- SERVICE -->
+
+        <label for="service">
+            SERVICE
+        </label>
+
+        <select id="service">
+
+            <option value="">
+                Select a service
+            </option>
+
+            <option value="ride">
+                🚗 Ride
+            </option>
+
+            <option value="food">
+                🍔 Food Delivery
+            </option>
+
+            <option value="parcel">
+                📦 Parcel Delivery
+            </option>
+
+            <option value="runner">
+                🏃 Runner Service
+            </option>
+
+        </select>
+
+
+        <!-- PICKUP -->
+
+        <label for="pickup">
+            PICK-UP LOCATION
+        </label>
+
+        <select id="pickup">
+
+            <option value="">
+                Select pick-up location
+            </option>
+
+            <optgroup label="COLLEGES">
+
+                <option value="tualang1">
+                    Tualang 1
+                </option>
+
+                <option value="tualang2">
+                    Tualang 2
+                </option>
+
+                <option value="tualang3">
+                    Tualang 3
+                </option>
+
+                <option value="dahlia1">
+                    Dahlia 1
+                </option>
+
+                <option value="dahlia2">
+                    Dahlia 2
+                </option>
+
+                <option value="dahlia3">
+                    Dahlia 3
+                </option>
+
+            </optgroup>
+
+
+            <optgroup label="CAMPUS">
+
+                <option value="dinamik">
+                    Dinamik
+                </option>
+
+                <option value="etika">
+                    Etika
+                </option>
+
+                <option value="progresif">
+                    Progresif
+                </option>
+
+                <option value="ptar">
+                    PTAR
+                </option>
+
+                <option value="pusatislam">
+                    Pusat Islam
+                </option>
+
+                <option value="pentadbiran">
+                    Pentadbiran
+                </option>
+
+                <option value="ppuk">
+                    PPUK
+                </option>
+
+                <option value="anjung">
+                    Anjung / Food Court
+                </option>
+
+                <option value="kesihatan">
+                    Kesihatan
+                </option>
+
+            </optgroup>
+
+        </select>
+
+
+        <!-- DESTINATION -->
+
+        <label for="destination">
+            DESTINATION
+        </label>
+
+        <select id="destination">
+
+            <option value="">
+                Select destination
+            </option>
+
+            <optgroup label="COLLEGES">
+
+                <option value="tualang1">
+                    Tualang 1
+                </option>
+
+                <option value="tualang2">
+                    Tualang 2
+                </option>
+
+                <option value="tualang3">
+                    Tualang 3
+                </option>
+
+                <option value="dahlia1">
+                    Dahlia 1
+                </option>
+
+                <option value="dahlia2">
+                    Dahlia 2
+                </option>
+
+                <option value="dahlia3">
+                    Dahlia 3
+                </option>
+
+            </optgroup>
+
+
+            <optgroup label="CAMPUS">
+
+                <option value="dinamik">
+                    Dinamik
+                </option>
+
+                <option value="etika">
+                    Etika
+                </option>
+
+                <option value="progresif">
+                    Progresif
+                </option>
+
+                <option value="ptar">
+                    PTAR
+                </option>
+
+                <option value="pusatislam">
+                    Pusat Islam
+                </option>
+
+                <option value="pentadbiran">
+                    Pentadbiran
+                </option>
+
+                <option value="ppuk">
+                    PPUK
+                </option>
+
+                <option value="anjung">
+                    Anjung / Food Court
+                </option>
+
+                <option value="kesihatan">
+                    Kesihatan
+                </option>
+
+            </optgroup>
+
+        </select>
+
+
+        <!-- DETAILS -->
+
+        <label for="details">
+            ORDER DETAILS
+        </label>
+
+        <textarea
+            id="details"
+            rows="5"
+            placeholder="Example: Collect my food from Anjung..."></textarea>
+
+
+        <button
+            id="submitButton"
+            type="button">
+
+            REQUEST SERVICE
+
+        </button>
+
+
+        <div
+            id="status">
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script type="module">
+
+
+    /*
+     * FIREBASE
+     */
+
+    const firebaseModule =
+        await import(
+            "./firebase.js?v=3"
+        );
+
+
+    const db =
+        firebaseModule.db;
+
+
+    const firestore =
+        await import(
+            "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js"
+        );
+
+
+    const collection =
+        firestore.collection;
+
+    const addDoc =
+        firestore.addDoc;
+
+    const serverTimestamp =
+        firestore.serverTimestamp;
+
+
+    /*
+     * ELEMENTS
+     */
+
+    const button =
+        document.getElementById(
+            "submitButton"
+        );
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    /*
+     * SUBMIT ORDER
+     */
+
+    button.addEventListener(
+        "click",
+        async function () {
+
+
+            const service =
+                document.getElementById(
+                    "service"
+                ).value;
+
+
+            const pickup =
+                document.getElementById(
+                    "pickup"
+                ).value;
+
+
+            const destination =
+                document.getElementById(
+                    "destination"
+                ).value;
+
+
+            const details =
+                document.getElementById(
+                    "details"
+                ).value.trim();
+
+
+            /*
+             * VALIDATION
+             */
+
+            if (!service) {
+
+                alert(
+                    "Please select a service."
+                );
+
+                return;
+
+            }
+
+
+            if (!pickup) {
+
+                alert(
+                    "Please select a pick-up location."
+                );
+
+                return;
+
+            }
+
+
+            if (!destination) {
+
+                alert(
+                    "Please select a destination."
+                );
+
+                return;
+
+            }
+
+
+            if (pickup === destination) {
+
+                alert(
+                    "Pick-up and destination cannot be the same."
+                );
+
+                return;
+
+            }
+
+
+            if (!details) {
+
+                alert(
+                    "Please enter your order details."
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * BUTTON
+             */
+
+            button.disabled = true;
+
+            button.innerText =
+                "SUBMITTING...";
+
+
+            status.style.display =
+                "block";
+
+            status.className =
+                "";
+
+
+            status.innerText =
+                "Sending your order...";
+
+
+            try {
+
+
+                /*
+                 * FIRESTORE
+                 */
+
+                const docRef =
+                    await addDoc(
+
+                        collection(
+                            db,
+                            "orders"
+                        ),
+
+                        {
+
+                            service:
+                                service,
+
+                            pickup:
+                                pickup,
+
+                            destination:
+                                destination,
+
+                            details:
+                                details,
+
+                            price:
+                                null,
+
+                            status:
+                                "Waiting for Runner",
+
+                            createdAt:
+                                serverTimestamp()
+
+                        }
+
+                    );
+
+
+                /*
+                 * SAVE ORDER ID
+                 */
+
+                localStorage.setItem(
+                    "asidGoOrderId",
+                    docRef.id
+                );
+
+
+                /*
+                 * SUCCESS
+                 */
+
+                status.className =
+                    "success";
+
+
+                status.innerHTML =
+
+                    "<strong>" +
+                    "Order Submitted! 🎉" +
+                    "</strong>" +
+
+                    "<div class='order-id'>" +
+                    "Order ID: " +
+                    docRef.id +
+                    "</div>" +
+
+                    "<div class='order-id'>" +
+                    "Status: Waiting for Runner" +
+                    "</div>";
+
+
+                button.innerText =
+                    "ORDER SUBMITTED ✓";
+
+
+                console.log(
+                    "🔥 ORDER SAVED:",
+                    docRef.id
+                );
+
+
+            }
+
+            catch (error) {
+
+
+                console.error(
+                    "🔥 ORDER ERROR:",
+                    error
+                );
+
+
+                status.className =
+                    "error";
+
+
+                status.innerText =
+                    "Error: " +
+                    error.message;
+
+
+                button.disabled =
+                    false;
+
+
+                button.innerText =
+                    "REQUEST SERVICE";
+
+            }
+
+        }
+
+    );
+
+</script>
+
+
+</body>
+
+</html>
