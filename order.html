@@ -8,602 +8,353 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>ASID GO - Order</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #172033;
-        }
-
-        nav {
-            background: #172033;
-            color: white;
-            padding: 18px 25px;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav h2 {
-            margin: 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-        }
-
-        .container {
-            max-width: 650px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        h1 {
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            color: #667085;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-top: 18px;
-            margin-bottom: 8px;
-        }
-
-        select,
-        textarea {
-            width: 100%;
-            padding: 13px;
-
-            border: 1px solid #d0d5dd;
-            border-radius: 8px;
-
-            font-size: 15px;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        #submitButton {
-            width: 100%;
-
-            margin-top: 25px;
-            padding: 16px;
-
-            border: none;
-            border-radius: 8px;
-
-            background: #172033;
-            color: white;
-
-            font-size: 16px;
-            font-weight: bold;
-
-            cursor: pointer;
-        }
-
-        #submitButton:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        #status {
-            display: none;
-
-            margin-top: 20px;
-            padding: 15px;
-
-            border-radius: 8px;
-        }
-
-        .success {
-            display: block !important;
-            background: #e8f7ed;
-            color: #18794e;
-        }
-
-        .error {
-            display: block !important;
-            background: #fdecec;
-            color: #b42318;
-        }
-
-        .order-id {
-            margin-top: 10px;
-            word-break: break-all;
-            font-size: 14px;
-        }
-
-    </style>
+    <title>ASID GO Order Test</title>
 
 </head>
 
-
 <body>
 
+    <h1>ASID GO 🚗</h1>
 
-<nav>
+    <h2>ORDER FORM VERSION 2A</h2>
 
-    <h2>
-        ASID GO
-    </h2>
+    <label>
+        SERVICE
+    </label>
 
-    <div>
+    <br>
 
-        <a href="index.html">
-            Home
-        </a>
+    <select id="service">
 
-        <a href="order.html">
-            Order
-        </a>
+        <option value="">
+            Select service
+        </option>
 
-    </div>
+        <option value="ride">
+            🚗 Ride
+        </option>
 
-</nav>
+        <option value="food">
+            🍔 Food Delivery
+        </option>
 
+        <option value="parcel">
+            📦 Parcel Delivery
+        </option>
 
-<div class="container">
+        <option value="runner">
+            🏃 Runner Service
+        </option>
 
-    <div class="card">
+    </select>
 
-        <h1>
-            Request a Service 🚗
-        </h1>
 
-        <p class="subtitle">
-            Tell us what you need and where you need it.
-        </p>
+    <br>
+    <br>
 
 
-        <!-- SERVICE -->
+    <label>
+        PICK-UP LOCATION
+    </label>
 
-        <label for="service">
-            SERVICE
-        </label>
+    <br>
 
-        <select id="service">
+    <select id="pickup">
 
-            <option value="">
-                Select a service
-            </option>
+        <option value="">
+            Select pick-up
+        </option>
 
-            <option value="Ride">
-                🚗 Ride
-            </option>
+        <option value="Tualang 1">
+            Tualang 1
+        </option>
 
-            <option value="Food Delivery">
-                🍔 Food Delivery
-            </option>
+        <option value="Tualang 2">
+            Tualang 2
+        </option>
 
-            <option value="Parcel Delivery">
-                📦 Parcel Delivery
-            </option>
+        <option value="Tualang 3">
+            Tualang 3
+        </option>
 
-            <option value="Runner Service">
-                🏃 Runner Service
-            </option>
+        <option value="Dahlia 1">
+            Dahlia 1
+        </option>
 
-        </select>
+        <option value="Dahlia 2">
+            Dahlia 2
+        </option>
 
+        <option value="Dahlia 3">
+            Dahlia 3
+        </option>
 
-        <!-- PICKUP -->
+        <option value="Dinamik">
+            Dinamik
+        </option>
 
-        <label for="pickup">
-            PICK-UP LOCATION
-        </label>
+        <option value="Etika">
+            Etika
+        </option>
 
-        <select id="pickup">
+        <option value="Progresif">
+            Progresif
+        </option>
 
-            <option value="">
-                Select pick-up location
-            </option>
+        <option value="PTAR">
+            PTAR
+        </option>
 
-            <optgroup label="COLLEGES">
+        <option value="Pusat Islam">
+            Pusat Islam
+        </option>
 
-                <option>Tualang 1</option>
-                <option>Tualang 2</option>
-                <option>Tualang 3</option>
+        <option value="Pentadbiran">
+            Pentadbiran
+        </option>
 
-                <option>Dahlia 1</option>
-                <option>Dahlia 2</option>
-                <option>Dahlia 3</option>
+        <option value="PPUK">
+            PPUK
+        </option>
 
-            </optgroup>
+        <option value="Anjung">
+            Anjung / Food Court
+        </option>
 
-            <optgroup label="CAMPUS">
+        <option value="Kesihatan">
+            Kesihatan
+        </option>
 
-                <option>Dinamik</option>
-                <option>Etika</option>
-                <option>Progresif</option>
-                <option>PTAR</option>
-                <option>Pusat Islam</option>
-                <option>Pentadbiran</option>
-                <option>PPUK</option>
-                <option>Anjung / Food Court</option>
-                <option>Kesihatan</option>
+    </select>
 
-            </optgroup>
 
-        </select>
+    <br>
+    <br>
 
 
-        <!-- DESTINATION -->
+    <label>
+        DESTINATION
+    </label>
 
-        <label for="destination">
-            DESTINATION
-        </label>
+    <br>
 
-        <select id="destination">
+    <select id="destination">
 
-            <option value="">
-                Select destination
-            </option>
+        <option value="">
+            Select destination
+        </option>
 
-            <optgroup label="COLLEGES">
+        <option value="Tualang 1">
+            Tualang 1
+        </option>
 
-                <option>Tualang 1</option>
-                <option>Tualang 2</option>
-                <option>Tualang 3</option>
+        <option value="Tualang 2">
+            Tualang 2
+        </option>
 
-                <option>Dahlia 1</option>
-                <option>Dahlia 2</option>
-                <option>Dahlia 3</option>
+        <option value="Tualang 3">
+            Tualang 3
+        </option>
 
-            </optgroup>
+        <option value="Dahlia 1">
+            Dahlia 1
+        </option>
 
-            <optgroup label="CAMPUS">
+        <option value="Dahlia 2">
+            Dahlia 2
+        </option>
 
-                <option>Dinamik</option>
-                <option>Etika</option>
-                <option>Progresif</option>
-                <option>PTAR</option>
-                <option>Pusat Islam</option>
-                <option>Pentadbiran</option>
-                <option>PPUK</option>
-                <option>Anjung / Food Court</option>
-                <option>Kesihatan</option>
+        <option value="Dahlia 3">
+            Dahlia 3
+        </option>
 
-            </optgroup>
+        <option value="Dinamik">
+            Dinamik
+        </option>
 
-        </select>
+        <option value="Etika">
+            Etika
+        </option>
 
+        <option value="Progresif">
+            Progresif
+        </option>
 
-        <!-- DETAILS -->
+        <option value="PTAR">
+            PTAR
+        </option>
 
-        <label for="details">
-            ORDER DETAILS
-        </label>
+        <option value="Pusat Islam">
+            Pusat Islam
+        </option>
 
-        <textarea
-            id="details"
-            rows="5"
-            placeholder="Example: Collect my food from Anjung..."></textarea>
+        <option value="Pentadbiran">
+            Pentadbiran
+        </option>
 
+        <option value="PPUK">
+            PPUK
+        </option>
 
-        <!-- BUTTON -->
+        <option value="Anjung">
+            Anjung / Food Court
+        </option>
 
-        <button
-            id="submitButton"
-            type="button">
+        <option value="Kesihatan">
+            Kesihatan
+        </option>
 
-            REQUEST SERVICE
+    </select>
 
-        </button>
 
+    <br>
+    <br>
 
-        <div id="status"></div>
 
+    <label>
+        ORDER DETAILS
+    </label>
 
-    </div>
+    <br>
 
-</div>
+    <textarea
+        id="details"
+        rows="5"
+        cols="40"
+        placeholder="Tell the runner what you need...">
+    </textarea>
 
 
-<script>
+    <br>
+    <br>
 
-    /*
-     * GET BUTTON
-     */
 
-    const button =
-        document.getElementById(
-            "submitButton"
+    <button
+        id="requestButton"
+        type="button">
+
+        REQUEST SERVICE
+
+    </button>
+
+
+    <p id="status">
+
+        Status: Page loaded
+
+    </p>
+
+
+    <script>
+
+        console.log(
+            "🔥 ORDER VERSION 2A LOADED"
         );
 
 
-    const status =
-        document.getElementById(
-            "status"
-        );
+        const button =
+            document.getElementById(
+                "requestButton"
+            );
 
 
-    /*
-     * BUTTON CLICK
-     */
+        const status =
+            document.getElementById(
+                "status"
+            );
 
-    button.addEventListener(
-        "click",
-        async function () {
 
-
-            /*
-             * GET FORM DATA
-             */
-
-            const service =
-                document.getElementById(
-                    "service"
-                ).value;
-
-
-            const pickup =
-                document.getElementById(
-                    "pickup"
-                ).value;
-
-
-            const destination =
-                document.getElementById(
-                    "destination"
-                ).value;
-
-
-            const details =
-                document.getElementById(
-                    "details"
-                ).value.trim();
-
-
-            /*
-             * VALIDATION
-             */
-
-            if (service === "") {
-
-                alert(
-                    "Please select a service."
-                );
-
-                return;
-
-            }
-
-
-            if (pickup === "") {
-
-                alert(
-                    "Please select a pick-up location."
-                );
-
-                return;
-
-            }
-
-
-            if (destination === "") {
-
-                alert(
-                    "Please select a destination."
-                );
-
-                return;
-
-            }
-
-
-            if (pickup === destination) {
-
-                alert(
-                    "Pick-up and destination cannot be the same."
-                );
-
-                return;
-
-            }
-
-
-            if (details === "") {
-
-                alert(
-                    "Please enter your order details."
-                );
-
-                return;
-
-            }
-
-
-            /*
-             * BUTTON LOADING
-             */
-
-            button.disabled = true;
-
-            button.innerText =
-                "SUBMITTING...";
-
-
-            status.style.display =
-                "block";
-
-            status.className = "";
-
-            status.innerText =
-                "Connecting to Firebase...";
-
-
-            try {
-
-
-                /*
-                 * LOAD FIREBASE
-                 */
-
-                const firebase =
-                    await import(
-                        "./firebase.js?v=5"
-                    );
-
-
-                const db =
-                    firebase.db;
-
-
-                /*
-                 * LOAD FIRESTORE
-                 */
-
-                const firestore =
-                    await import(
-                        "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js"
-                    );
-
-
-                /*
-                 * CREATE ORDER
-                 */
-
-                const docRef =
-                    await firestore.addDoc(
-
-                        firestore.collection(
-                            db,
-                            "orders"
-                        ),
-
-                        {
-
-                            service:
-                                service,
-
-                            pickup:
-                                pickup,
-
-                            destination:
-                                destination,
-
-                            details:
-                                details,
-
-                            price:
-                                null,
-
-                            status:
-                                "Waiting for Runner",
-
-                            createdAt:
-                                firestore.serverTimestamp()
-
-                        }
-
-                    );
-
-
-                /*
-                 * SAVE ORDER ID
-                 */
-
-                localStorage.setItem(
-                    "asidGoOrderId",
-                    docRef.id
-                );
-
-
-                /*
-                 * SHOW SUCCESS
-                 */
-
-                status.className =
-                    "success";
-
-
-                status.innerHTML =
-
-                    "<strong>" +
-                    "Order Submitted! 🎉" +
-                    "</strong>" +
-
-                    "<div class='order-id'>" +
-                    "Order ID: " +
-                    docRef.id +
-                    "</div>" +
-
-                    "<div class='order-id'>" +
-                    "Status: Waiting for Runner" +
-                    "</div>";
-
-
-                button.innerText =
-                    "ORDER SUBMITTED ✓";
+        button.addEventListener(
+            "click",
+            function () {
 
 
                 console.log(
-                    "🔥 ORDER SAVED:",
-                    docRef.id
+                    "🔥 REQUEST SERVICE CLICKED"
                 );
 
 
-            }
-
-            catch (error) {
-
-
-                console.error(
-                    "🔥 ORDER ERROR:",
-                    error
-                );
+                const service =
+                    document.getElementById(
+                        "service"
+                    ).value;
 
 
-                status.className =
-                    "error";
+                const pickup =
+                    document.getElementById(
+                        "pickup"
+                    ).value;
+
+
+                const destination =
+                    document.getElementById(
+                        "destination"
+                    ).value;
+
+
+                const details =
+                    document.getElementById(
+                        "details"
+                    ).value.trim();
+
+
+                if (service === "") {
+
+                    alert(
+                        "Please select a service."
+                    );
+
+                    return;
+
+                }
+
+
+                if (pickup === "") {
+
+                    alert(
+                        "Please select pick-up."
+                    );
+
+                    return;
+
+                }
+
+
+                if (destination === "") {
+
+                    alert(
+                        "Please select destination."
+                    );
+
+                    return;
+
+                }
+
+
+                if (details === "") {
+
+                    alert(
+                        "Please enter order details."
+                    );
+
+                    return;
+
+                }
 
 
                 status.innerText =
-                    "Firebase Error: " +
-                    error.message;
+                    "REQUEST SERVICE WORKS! ✅";
 
 
-                button.disabled =
-                    false;
+                alert(
+                    "REQUEST SERVICE WORKS! 🎉"
+                );
 
-
-                button.innerText =
-                    "REQUEST SERVICE";
 
             }
+        );
 
-        }
-
-    );
-
-</script>
-
+    </script>
 
 </body>
 
