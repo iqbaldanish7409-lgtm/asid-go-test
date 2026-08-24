@@ -8,17 +8,16 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>ASID GO - Request Service</title>
+    <title>ASID GO - Order</title>
 
     <style>
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
             background: #f5f7fb;
             color: #172033;
@@ -26,7 +25,6 @@
 
         nav {
             background: #172033;
-            color: white;
             padding: 18px 25px;
             display: flex;
             justify-content: space-between;
@@ -34,6 +32,7 @@
         }
 
         nav h2 {
+            color: white;
             margin: 0;
         }
 
@@ -57,7 +56,7 @@
         }
 
         h1 {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .subtitle {
@@ -67,9 +66,9 @@
 
         label {
             display: block;
-            font-weight: bold;
             margin-top: 18px;
             margin-bottom: 8px;
+            font-weight: bold;
         }
 
         select,
@@ -85,10 +84,10 @@
             resize: vertical;
         }
 
-        button {
+        #submitButton {
             width: 100%;
             margin-top: 25px;
-            padding: 15px;
+            padding: 16px;
             border: none;
             border-radius: 8px;
             background: #172033;
@@ -98,13 +97,8 @@
             cursor: pointer;
         }
 
-        button:hover {
-            opacity: 0.9;
-        }
-
-        button:disabled {
+        #submitButton:disabled {
             opacity: 0.6;
-            cursor: not-allowed;
         }
 
         #status {
@@ -115,19 +109,15 @@
         }
 
         .success {
+            display: block !important;
             background: #e8f7ed;
             color: #18794e;
         }
 
         .error {
+            display: block !important;
             background: #fdecec;
             color: #b42318;
-        }
-
-        .order-id {
-            margin-top: 10px;
-            font-size: 14px;
-            word-break: break-all;
         }
 
     </style>
@@ -182,19 +172,19 @@
                 Select a service
             </option>
 
-            <option value="ride">
+            <option value="Ride">
                 🚗 Ride
             </option>
 
-            <option value="food">
+            <option value="Food Delivery">
                 🍔 Food Delivery
             </option>
 
-            <option value="parcel">
+            <option value="Parcel Delivery">
                 📦 Parcel Delivery
             </option>
 
-            <option value="runner">
+            <option value="Runner Service">
                 🏃 Runner Service
             </option>
 
@@ -215,70 +205,27 @@
 
             <optgroup label="COLLEGES">
 
-                <option value="tualang1">
-                    Tualang 1
-                </option>
+                <option>Tualang 1</option>
+                <option>Tualang 2</option>
+                <option>Tualang 3</option>
 
-                <option value="tualang2">
-                    Tualang 2
-                </option>
-
-                <option value="tualang3">
-                    Tualang 3
-                </option>
-
-                <option value="dahlia1">
-                    Dahlia 1
-                </option>
-
-                <option value="dahlia2">
-                    Dahlia 2
-                </option>
-
-                <option value="dahlia3">
-                    Dahlia 3
-                </option>
+                <option>Dahlia 1</option>
+                <option>Dahlia 2</option>
+                <option>Dahlia 3</option>
 
             </optgroup>
 
-
             <optgroup label="CAMPUS">
 
-                <option value="dinamik">
-                    Dinamik
-                </option>
-
-                <option value="etika">
-                    Etika
-                </option>
-
-                <option value="progresif">
-                    Progresif
-                </option>
-
-                <option value="ptar">
-                    PTAR
-                </option>
-
-                <option value="pusatislam">
-                    Pusat Islam
-                </option>
-
-                <option value="pentadbiran">
-                    Pentadbiran
-                </option>
-
-                <option value="ppuk">
-                    PPUK
-                </option>
-
-                <option value="anjung">
-                    Anjung / Food Court
-                </option>
-
-                <option value="kesihatan">
-                    Kesihatan
-                </option>
+                <option>Dinamik</option>
+                <option>Etika</option>
+                <option>Progresif</option>
+                <option>PTAR</option>
+                <option>Pusat Islam</option>
+                <option>Pentadbiran</option>
+                <option>PPUK</option>
+                <option>Anjung / Food Court</option>
+                <option>Kesihatan</option>
 
             </optgroup>
 
@@ -299,70 +246,27 @@
 
             <optgroup label="COLLEGES">
 
-                <option value="tualang1">
-                    Tualang 1
-                </option>
+                <option>Tualang 1</option>
+                <option>Tualang 2</option>
+                <option>Tualang 3</option>
 
-                <option value="tualang2">
-                    Tualang 2
-                </option>
-
-                <option value="tualang3">
-                    Tualang 3
-                </option>
-
-                <option value="dahlia1">
-                    Dahlia 1
-                </option>
-
-                <option value="dahlia2">
-                    Dahlia 2
-                </option>
-
-                <option value="dahlia3">
-                    Dahlia 3
-                </option>
+                <option>Dahlia 1</option>
+                <option>Dahlia 2</option>
+                <option>Dahlia 3</option>
 
             </optgroup>
 
-
             <optgroup label="CAMPUS">
 
-                <option value="dinamik">
-                    Dinamik
-                </option>
-
-                <option value="etika">
-                    Etika
-                </option>
-
-                <option value="progresif">
-                    Progresif
-                </option>
-
-                <option value="ptar">
-                    PTAR
-                </option>
-
-                <option value="pusatislam">
-                    Pusat Islam
-                </option>
-
-                <option value="pentadbiran">
-                    Pentadbiran
-                </option>
-
-                <option value="ppuk">
-                    PPUK
-                </option>
-
-                <option value="anjung">
-                    Anjung / Food Court
-                </option>
-
-                <option value="kesihatan">
-                    Kesihatan
-                </option>
+                <option>Dinamik</option>
+                <option>Etika</option>
+                <option>Progresif</option>
+                <option>PTAR</option>
+                <option>Pusat Islam</option>
+                <option>Pentadbiran</option>
+                <option>PPUK</option>
+                <option>Anjung / Food Court</option>
+                <option>Kesihatan</option>
 
             </optgroup>
 
@@ -381,6 +285,8 @@
             placeholder="Example: Collect my food from Anjung..."></textarea>
 
 
+        <!-- BUTTON -->
+
         <button
             id="submitButton"
             type="button">
@@ -390,10 +296,7 @@
         </button>
 
 
-        <div
-            id="status">
-
-        </div>
+        <div id="status"></div>
 
 
     </div>
@@ -401,118 +304,61 @@
 </div>
 
 
-<script type="module">
-
-
-    /*
-     * FIREBASE
-     */
-
-    const firebaseModule =
-        await import(
-            "./firebase.js?v=3"
-        );
-
-
-    const db =
-        firebaseModule.db;
-
-
-    const firestore =
-        await import(
-            "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js"
-        );
-
-
-    const collection =
-        firestore.collection;
-
-    const addDoc =
-        firestore.addDoc;
-
-    const serverTimestamp =
-        firestore.serverTimestamp;
-
-
-    /*
-     * ELEMENTS
-     */
+<script>
 
     const button =
-        document.getElementById(
-            "submitButton"
-        );
+        document.getElementById("submitButton");
 
     const status =
-        document.getElementById(
-            "status"
-        );
+        document.getElementById("status");
 
 
-    /*
-     * SUBMIT ORDER
-     */
+    console.log("🔥 ORDER PAGE LOADED");
+
 
     button.addEventListener(
         "click",
         async function () {
 
+            console.log("🔥 REQUEST SERVICE CLICKED");
+
 
             const service =
-                document.getElementById(
-                    "service"
-                ).value;
-
+                document.getElementById("service").value;
 
             const pickup =
-                document.getElementById(
-                    "pickup"
-                ).value;
-
+                document.getElementById("pickup").value;
 
             const destination =
-                document.getElementById(
-                    "destination"
-                ).value;
-
+                document.getElementById("destination").value;
 
             const details =
-                document.getElementById(
-                    "details"
-                ).value.trim();
+                document.getElementById("details").value.trim();
 
 
-            /*
-             * VALIDATION
-             */
+            /* VALIDATION */
 
-            if (!service) {
+            if (service === "") {
 
-                alert(
-                    "Please select a service."
-                );
+                alert("Please select a service.");
 
                 return;
 
             }
 
 
-            if (!pickup) {
+            if (pickup === "") {
 
-                alert(
-                    "Please select a pick-up location."
-                );
+                alert("Please select your pick-up location.");
 
                 return;
 
             }
 
 
-            if (!destination) {
+            if (destination === "") {
 
-                alert(
-                    "Please select a destination."
-                );
+                alert("Please select your destination.");
 
                 return;
 
@@ -530,7 +376,7 @@
             }
 
 
-            if (!details) {
+            if (details === "") {
 
                 alert(
                     "Please enter your order details."
@@ -541,10 +387,6 @@
             }
 
 
-            /*
-             * BUTTON
-             */
-
             button.disabled = true;
 
             button.innerText =
@@ -554,25 +396,37 @@
             status.style.display =
                 "block";
 
-            status.className =
-                "";
-
+            status.className = "";
 
             status.innerText =
-                "Sending your order...";
+                "Connecting to Firebase...";
 
 
             try {
 
 
-                /*
-                 * FIRESTORE
-                 */
+                /* LOAD FIREBASE ONLY NOW */
+
+                const firebase =
+                    await import(
+                        "./firebase.js?v=4"
+                    );
+
+
+                const db =
+                    firebase.db;
+
+
+                const firestore =
+                    await import(
+                        "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js"
+                    );
+
 
                 const docRef =
-                    await addDoc(
+                    await firestore.addDoc(
 
-                        collection(
+                        firestore.collection(
                             db,
                             "orders"
                         ),
@@ -598,16 +452,14 @@
                                 "Waiting for Runner",
 
                             createdAt:
-                                serverTimestamp()
+                                firestore.serverTimestamp()
 
                         }
 
                     );
 
 
-                /*
-                 * SAVE ORDER ID
-                 */
+                /* SAVE ORDER ID */
 
                 localStorage.setItem(
                     "asidGoOrderId",
@@ -615,9 +467,7 @@
                 );
 
 
-                /*
-                 * SUCCESS
-                 */
+                /* SUCCESS */
 
                 status.className =
                     "success";
@@ -627,16 +477,13 @@
 
                     "<strong>" +
                     "Order Submitted! 🎉" +
-                    "</strong>" +
+                    "</strong><br><br>" +
 
-                    "<div class='order-id'>" +
                     "Order ID: " +
                     docRef.id +
-                    "</div>" +
+                    "<br><br>" +
 
-                    "<div class='order-id'>" +
-                    "Status: Waiting for Runner" +
-                    "</div>";
+                    "Status: Waiting for Runner";
 
 
                 button.innerText =
@@ -665,7 +512,7 @@
 
 
                 status.innerText =
-                    "Error: " +
+                    "Firebase Error: " +
                     error.message;
 
 
