@@ -2,136 +2,42 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>ASID GO Firebase Test 2</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASID GO Firebase Test</title>
 </head>
 
 <body>
 
     <h1>ASID GO 🔥</h1>
 
-    <h2>FIREBASE TEST VERSION 2</h2>
+    <h2>FIREBASE TEST VERSION 3</h2>
 
-    <p>
-        Kalau kau nampak page ini,
-        maksudnya GitHub Pages sudah update.
-    </p>
-
-    <button
-        id="testButton"
-        type="button">
-
+    <button id="testButton" type="button">
         TEST FIREBASE NOW
-
     </button>
 
-
     <p id="status">
-        Status: Waiting...
+        Status: Page loaded
     </p>
-
 
     <script type="module">
 
-        import { db } from "./firebase.js";
+        const button = document.getElementById("testButton");
+        const status = document.getElementById("status");
 
-        import {
-            collection,
-            addDoc,
-            serverTimestamp
-        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+        console.log("STEP 1: PAGE JAVASCRIPT LOADED");
 
+        button.addEventListener("click", function () {
 
-        console.log("🔥🔥 FIREBASE VERSION 2 LOADED");
+            console.log("STEP 2: BUTTON CLICKED");
 
+            status.innerText =
+                "Status: BUTTON IS WORKING ✅";
 
-        const button =
-            document.getElementById("testButton");
+            alert("BUTTON IS WORKING! 🎉");
 
-        const status =
-            document.getElementById("status");
-
-
-        button.addEventListener(
-            "click",
-            async function () {
-
-                console.log(
-                    "🔥🔥 BUTTON CLICKED"
-                );
-
-
-                status.innerText =
-                    "Status: Connecting to Firebase...";
-
-
-                try {
-
-                    const docRef =
-                        await addDoc(
-
-                            collection(
-                                db,
-                                "test"
-                            ),
-
-                            {
-
-                                message:
-                                    "ASID GO Firebase Test 2",
-
-                                createdAt:
-                                    serverTimestamp()
-
-                            }
-
-                        );
-
-
-                    console.log(
-                        "🔥🔥 DATA SAVED:",
-                        docRef.id
-                    );
-
-
-                    status.innerText =
-                        "Status: FIREBASE CONNECTED ✅";
-
-
-                    alert(
-                        "FIREBASE WORKS! 🎉"
-                    );
-
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        "🔥🔥 FIREBASE ERROR:",
-                        error
-                    );
-
-
-                    status.innerText =
-                        "Status: FIREBASE ERROR ❌";
-
-
-                    alert(
-                        "Firebase Error:\n" +
-                        error.message
-                    );
-
-                }
-
-            }
-        );
+        });
 
     </script>
 
